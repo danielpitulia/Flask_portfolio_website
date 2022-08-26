@@ -1,0 +1,22 @@
+#photos{
+    max-width: 500px !important;
+}
+
+#stl_cont{
+    width: 300px;
+    height: 300px;
+    margin: auto;
+}
+
+.photo3d {
+    display: block;
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+}
+
+#carousel_outer {
+     width: 300px;
+     height: 300px;
+     margin: 1em auto;
+}
