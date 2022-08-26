@@ -1,14 +1,29 @@
- /* Style all font awesome icons */
  @font-face {
       font-family: 'Lato';
       src: URL('../fonts/Lato-Regular.ttf');
  }
 
- body {
-      font-family: 'Lato';
+body{
+     font-family: 'Lato';
+}
+
+#content-above-footer{
+      min-height: 100vh;
  }
 
- li {
+#footer{
+     position: absolute;
+     bottom: 0;
+     height: 5rem;
+     width: 100%;
+}
+
+#dates{
+     margin-top: 0px;
+     padding-top: 2rem;
+}
+
+li {
       max-width: 500px;
       list-style-type: none;
  }
@@ -35,6 +50,8 @@
            1px 1px 0 #000;
  }
 
+/* Style social media icons */
+/* ------------------------ */
  .fa {
       padding: 20px;
       font-size: 30px;
