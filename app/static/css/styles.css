@@ -9,10 +9,11 @@ body{
 
 #content-above-footer{
       min-height: 100vh;
+      margin-bottom: 5rem;
  }
 
 #footer{
-     position: absolute;
+     margin-top: -5rem;
      bottom: 0;
      height: 5rem;
      width: 100%;

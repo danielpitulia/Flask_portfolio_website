@@ -2,21 +2,27 @@
 
 {% block content %}
 
-{% set departures_zip = get_timetables("Rävekekärr") %}
 <div class="container">
-<table>
+<h1>Public Transport Timetables</h1>
+<p>Tired of Västtrafik ToGo? Try my app instead :)</p>
+<input type="text"></input>
+<button class="btn">Search</button>
+
+<table class="table">
      <tr>
-          <th><p>Line</p></th>
-          <th><p>Time remaining</p></th>
-          <th><p>Direction</p></th>
+          <th scope="col">Line</th>
+          <th scope="col">Time remaining</th>
+          <th scope="col">Direction</th>
      </tr>
-     {% for line, delta, destination in departures_zip %}
-     <tr>
-          <td><li>{{line}}</li></td>
-          <td><li>{{delta}}</li></td>
-          <td><li>{{destination}}</li></td>
-     </tr>
-     {% endfor %}
+     <tbody>
+          {% for line, delta, destination in departures_zip %}
+          <tr>
+               <td>{{line}}</td>
+               <td>{{delta}}</td>
+               <td>{{destination}}</td>
+          </tr>
+          {% endfor %}
+     </tbody>
 </table>
 </div>
 {% endblock %}
