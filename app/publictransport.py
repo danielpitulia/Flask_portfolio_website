@@ -25,7 +25,6 @@ access_token = x.json()['access_token']
 
 # 2) Send request for stop ID based on user input_departure_stop
 
-
 user_input_stopID = "Rävekärrsgatan"
 format = "json"
 url_stopID = "https://api.vasttrafik.se/bin/rest.exe/v2/location.name?input=" + user_input_stopID + "&format=" + format
