@@ -1,7 +1,22 @@
 {% extends "base.html" %}
 
 {% block content %}
+
+{% set departures_zip = get_timetables("Rävekekärr") %}
 <div class="container">
-     <p>insert public transport content here</p>
+<table>
+     <tr>
+          <th><p>Line</p></th>
+          <th><p>Time remaining</p></th>
+          <th><p>Direction</p></th>
+     </tr>
+     {% for line, delta, destination in departures_zip %}
+     <tr>
+          <td><li>{{line}}</li></td>
+          <td><li>{{delta}}</li></td>
+          <td><li>{{destination}}</li></td>
+     </tr>
+     {% endfor %}
+</table>
 </div>
 {% endblock %}

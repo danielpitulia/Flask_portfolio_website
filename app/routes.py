@@ -1,8 +1,9 @@
 from app import app
 from flask import render_template, url_for
 import datetime
+from publictransport import get_timetables
 
-date = datetime.datetime.now().strftime("%c")
+
 
 @app.route('/index')
 @app.route('/')
@@ -11,7 +12,9 @@ def index():
 
 @app.route('/publictransport')
 def publictransport():
-	return render_template('publictransport.html', title='TIMETABLE APP', date=date)
+	date = datetime.datetime.now().strftime("%c")
+	departures_zip = get_timetables("Rävekärr")
+	return render_template('publictransport.html', title='TIMETABLE APP', date=date, departures_zip=departures_zip)
 
 @app.route('/chat')
 def chat():
