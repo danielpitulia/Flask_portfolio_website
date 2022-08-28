@@ -55,7 +55,7 @@ li {
 /* ------------------------ */
  .fa {
       padding: 20px;
-      font-size: 30px;
+      font-size: 30px !important;
       width: 70px;
       text-align: center;
       text-decoration: none;
