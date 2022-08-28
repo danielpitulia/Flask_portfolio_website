@@ -3,26 +3,30 @@
 {% block content %}
 
 <div class="container">
-<h1>Public Transport Timetables</h1>
-<p>Tired of Västtrafik ToGo? Try my app instead :)</p>
-<input type="text"></input>
-<button class="btn">Search</button>
+     <h1>Public Transport Timetables</h1>
+     <p>Tired of Västtrafik ToGo? Try my app instead :)</p>
 
-<table class="table">
-     <tr>
-          <th scope="col">Line</th>
-          <th scope="col">Time remaining</th>
-          <th scope="col">Direction</th>
-     </tr>
-     <tbody>
-          {% for line, delta, destination in departures_zip %}
+     <form action="/publictransport" method="POST">
+               <label for="stop_search"></label>
+               <input id="stop_search" type="text" name="stop_input" value="{{ stop_input }}"></input>
+               <input class="btn" type="submit" value="Submit"></input>
+     </form>
+
+     <table class="table">
           <tr>
-               <td>{{line}}</td>
-               <td>{{delta}}</td>
-               <td>{{destination}}</td>
+               <th scope="col">Line</th>
+               <th scope="col">Time remaining</th>
+               <th scope="col">Direction</th>
           </tr>
-          {% endfor %}
-     </tbody>
-</table>
+          <tbody>
+               {% for line, delta, destination in departures_zip if not delta > 120 and delta > 0 %}
+               <tr>
+                    <td>{{ line }}</td>
+                    <td>{{ delta }}</td>
+                    <td>{{ destination }}</td>
+               </tr>
+               {% endfor %}
+          </tbody>
+     </table>
 </div>
 {% endblock %}
