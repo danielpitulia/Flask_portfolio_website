@@ -6,25 +6,32 @@
      <meta charset="utf-8">
      <meta name="viewport" content="width=device-width, initial-scale=1">
      <!-- Favicon links-->
-     <link rel="apple-touch-icon" sizes="180x180" href="{{url_for('static', filename='favicon/apple-touch-icon.png')}}">
-     <link rel="icon" type="image.png" sizes="32x32" href="{{url_for('static', filename='favicon/favicon-16x16.png')}}">
-     <link rel="icon" type="image.png" sizes="16x16" href="{{url_for('static', filename='favicon/favicon-16x16.png')}}">
-     <link rel="manifest" href="{{url_for('static', filename='favicon/site.webmanifest')}}">
+     <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='favicon/apple-touch-icon.png') }}">
+     <link rel="icon" type="image.png" sizes="32x32" href="{{ url_for('static', filename='favicon/favicon-16x16.png') }}">
+     <link rel="icon" type="image.png" sizes="16x16" href="{{ url_for('static', filename='favicon/favicon-16x16.png') }}">
+     <link rel="manifest" href="{{ url_for('static', filename='favicon/site.webmanifest') }}">
      <!-- End of Favicon links -->
-     <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">
-     {% if css != "styles" %}
-     <link rel="stylesheet" href="{{url_for('static', filename='css/{0}.css'.format(css))}}">
+     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+     {% if css %}
+     <link rel="stylesheet" href="{{ url_for('static', filename='css/{0}.css'.format(css)) }}">
      {% endif %}
-     <link href="{{url_for('static', filename='css/bootstrap/bootstrap.min.css')}}" rel="stylesheet">
+     <link href="{{ url_for('static', filename='css/bootstrap/bootstrap.min.css') }}" rel="stylesheet">
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
      <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/fifteen" type="text/css" />
-     <script src="{{url_for('static', filename='js/bootstrap/bootstrap.bundle.js')}}"></script>
+     <script src="{{ url_for('static', filename='js/bootstrap/bootstrap.bundle.js') }}"></script>
+     {% if js_static %}
+     <script src="{{ js_online }}"></script>
+     <script async="true" src="{{ url_for('static', filename='{0}'.format(js_static)) }}"></script>
+     {% endif %}
+     {% if js_online %}
+
+     {% endif %}
 </head>
 
 <body>
      <header>
           <div id="topBanner" class="bg-dark text-white text-center ">
-               <h1>{{title}}</h1>
+               <h1>{{ title }}</h1>
                <p>DANIEL PITULIA</p>
           </div>
           <div class="container">
@@ -36,18 +43,18 @@
                          <div class="collapse navbar-collapse" id="navbarNavDropdown">
                               <ul class="navbar-nav">
                                    <li class="nav-item">
-                                        <a class="nav-link active" aria-current="page" href="{{url_for('index')}}">Home</a>
+                                        <a class="nav-link active" aria-current="page" href="{{ url_for('index') }}">Home</a>
                                    </li>
                                    <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                              Projekt
                                         </a>
                                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                             <li id="publictransport.html"><a class="dropdown-item" href="{{url_for('publictransport')}}">Tidtabeller
+                                             <li id="publictransport.html"><a class="dropdown-item" href="{{ url_for('publictransport') }}">Tidtabeller
                                                        Kollektivtrafik</a></li>
-                                             <li id="chat.html"><a class="dropdown-item" href="{{url_for('chat')}}">Chat</a></li>
-                                             <li id="raspberry.html"><a class="dropdown-item" href="{{url_for('raspberry')}}">Raspberry Pi 🥧️</a></li>
-                                             <li id="unitcircle.html"><a class="dropdown-item" href="{{url_for('unitcircle')}}">Enhetscirkel</a>
+                                             <li id="chat.html"><a class="dropdown-item" href="{{ url_for('chat') }}">Chat</a></li>
+                                             <li id="raspberry.html"><a class="dropdown-item" href="{{ url_for('raspberry') }}">Raspberry Pi 🥧️</a></li>
+                                             <li id="unitcircle.html"><a class="dropdown-item" href="{{ url_for('unitcircle') }}">Enhetscirkel</a>
                                              </li>
                                         </ul>
                                    </li>
@@ -57,7 +64,9 @@
                </nav>
           </div>
      </header>
+     <br>
           {% block content %}{% endblock %}
+     <br>
      <footer id="footer" class="bg-dark text-white text-center">
           <p id="dates">{{ date }}</p>
      </footer>

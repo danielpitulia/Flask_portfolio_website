@@ -2,32 +2,34 @@
 
 {% block content %}
 
-<div class="wrapper container" id="publictransportdiv">
-     <h1>Public Transport Timetables</h1>
-     <p>Tired of Västtrafik ToGo? Try my app instead :)</p>
-     <form action="/publictransport" method="POST">
-          <label for="stop_search"></label>
-          <input id="stop_search" type="text" name="stop_input" value="{{ stop_input }}" placeholder="Search bus stop name"></input>
-          <input class="btn btn-primary" type="submit" value="Search"></input>
-     </form>
-     <br />
-     <p>Stop name: {{ stop_name }}</p>
-     <table id="timetable" class="table">
-          <tr>
-               <th scope="col">Line</th>
-               <th scope="col">Time remaining (min)</th>
-               <th scope="col">Direction</th>
-          </tr>
-          <tbody>
-               {% for line, delta, destination in departures_zip if not delta > 120 and delta > 0 %}
+<div class="wrapper" id="timetablediv">
+     <div class="container">
+          <h1>Public Transport Timetables</h1>
+          <p>Tired of Västtrafik ToGo? Try my app instead :)</p>
+          <form action="/publictransport" method="POST">
+               <label for="stop_search"></label>
+               <input id="stop_search" type="text" name="stop_input" value="{{ stop_input }}" placeholder="Search bus stop name"></input>
+               <input class="btn btn-primary" type="submit" value="Search"></input>
+          </form>
+          <br />
+          <p>Stop name: {{ stop_name }}</p>
+          <table id="timetable" class="table">
                <tr>
-                    <td>{{ line }}</td>
-                    <td id="delta">{{ delta }}</td>
-                    <td>{{ destination }}</td>
+                    <th scope="col">Line</th>
+                    <th scope="col">Time remaining (min)</th>
+                    <th scope="col">Direction</th>
                </tr>
-               {% endfor %}
-          </tbody>
-     </table>
-     <br />
+               <tbody>
+                    {% for line, delta, destination in departures_zip if not delta > 120 and delta > 0 %}
+                    <tr>
+                         <td>{{ line }}</td>
+                         <td id="delta">{{ delta }}</td>
+                         <td>{{ destination }}</td>
+                    </tr>
+                    {% endfor %}
+               </tbody>
+          </table>
+          <br />
+     </div>
 </div>
 {% endblock %}

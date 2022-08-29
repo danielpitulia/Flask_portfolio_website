@@ -1,49 +1,50 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div id="photos" class="wrapper container mt-5">
-	<h2>Raspberry PI 🥧️ </h2>
-	<p>Jag har använt en Raspberry Pi, en liten enkortsdator, för att komma igång med programmering.
-		Hittills har jag kopplat in en strömknapp och 3D-printat ett stativ till en liten 7-tums skärm
-		Gjorde ritningen i FreeCAD.
-		Testa att klicka i 3D-visaren nedan</p>
-	<div id="stl_cont"></div>
-	<div>
-		<br />
-		<div id="carousel_outer">
-			<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-				<div class="carousel-indicators">
-					<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-					<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-					<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-					<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+<div class=wrapper">
+	<div id="photos" class="container">
+		<h2>Raspberry PI 🥧️ </h2>
+		<p>Jag har använt en Raspberry Pi, en liten enkortsdator, för att komma igång med programmering.
+			Hittills har jag kopplat in en strömknapp och 3D-printat ett stativ till en liten 7-tums skärm.</p>
+			<br />
+			<div id="carousel_outer">
+				<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+					<div class="carousel-indicators">
+						<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+						<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+						<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+						<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+					</div>
+					<div class="carousel-inner">
+						<div class="carousel-item active">
+							<img src="{{url_for('static', filename='img/raspicase1.jpg')}}" class="d-block w-100" alt="...">
+						</div>
+						<div class="carousel-item">
+							<img src="{{url_for('static', filename='img/raspicase2.jpg')}}" class="d-block w-100" alt="...">
+						</div>
+						<div class="carousel-item">
+							<img src="{{url_for('static', filename='img/raspiscreen.jpg')}}" class="d-block w-100" alt="...">
+						</div>
+						<div class="carousel-item">
+							<img src="{{url_for('static', filename='img/raspiscreen2.jpg')}}" class="d-block w-100" alt="...">
+						</div>
+					</div>
+					<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						<span class="visually-hidden">Previous</span>
+					</button>
+					<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+						<span class="carousel-control-next-icon" aria-hidden="true"></span>
+						<span class="visually-hidden">Next</span>
+					</button>
 				</div>
-				<div class="carousel-inner">
-					<div class="carousel-item active">
-						<img src="{{url_for('static', filename='img/raspicase1.jpg')}}" class="d-block w-100" alt="...">
-					</div>
-					<div class="carousel-item">
-						<img src="{{url_for('static', filename='img/raspicase2.jpg')}}" class="d-block w-100" alt="...">
-					</div>
-					<div class="carousel-item">
-						<img src="{{url_for('static', filename='img/raspiscreen.jpg')}}" class="d-block w-100" alt="...">
-					</div>
-					<div class="carousel-item">
-						<img src="{{url_for('static', filename='img/raspiscreen2.jpg')}}" class="d-block w-100" alt="...">
-					</div>
-				</div>
-				<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-					<span class="visually-hidden">Previous</span>
-				</button>
-				<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-					<span class="carousel-control-next-icon" aria-hidden="true"></span>
-					<span class="visually-hidden">Next</span>
-				</button>
 			</div>
-		</div>
-		<script src="{{url_for('static', filename='js/3dprint/stl_viewer.min.js')}}"></script>
-		<script src="{{url_for('static', filename='js/3dprint/3dprint.js')}}"></script>
+			<br>
+			<p>Jag gjorde ritningen i FreeCAD, se nedan.
+			Testa att klicka och dra i 3D-visaren</p>
+			<div id="stl_cont"></div>
+			<script src="{{url_for('static', filename='js/3dprint/stl_viewer.min.js')}}"></script>
+			<script src="{{url_for('static', filename='js/3dprint/3dprint.js')}}"></script>
 	</div>
 </div>
 {% endblock %}
