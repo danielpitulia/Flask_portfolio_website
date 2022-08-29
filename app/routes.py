@@ -16,17 +16,20 @@ def index():
 @app.route('/publictransport', methods=['GET', 'POST'])
 
 def publictransport():
-
+# If the user enters a search (POST method), request data from Västtrafik.
+# Else, render an empty table.
 	if request.method == 'POST':
 		stop_input = request.form['stop_input']
-		departures_zip = get_timetables(token, stop_input)
-		return render_template('publictransport.html', title='TIMETABLE APP', date=date, departures_zip=departures_zip, stop_input = stop_input, css="styles_publictransport")
+		timetable_and_stop = get_timetables(token, stop_input)
+		departures_zip = timetable_and_stop[0]
+		stop_name = timetable_and_stop[1]
+		return render_template('publictransport.html', title='TIMETABLE APP', date=date, departures_zip=departures_zip, stop_input = stop_input, css="styles_publictransport", stop_name=stop_name)
 
 	elif request.method == 'GET':
 		line,delta,destination = "", "", ""
 		departures_zip=zip(line, delta, destination)
 		stop_input=""
-		return render_template('publictransport.html', title='TIMETABLE APP', date=date, departures_zip=departures_zip, stop_input = stop_input, css="styles_publictransport")
+		return render_template('publictransport.html', title='TIMETABLE APP', date=date, departures_zip=departures_zip, stop_input = stop_input, css="styles_publictransport", stop_name="")
 
 @app.route('/chat')
 def chat():

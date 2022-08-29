@@ -5,16 +5,16 @@
 
 body{
      font-family: 'Lato';
+     display: flex;
+     flex-direction: column;
+     min-height: 100vh;
 }
 
-#content-above-footer{
-      min-height: 100vh;
-      margin-bottom: 5rem;
- }
+.wrapper{
+     flex:1;
+}
 
 #footer{
-     margin-top: -5rem;
-     bottom: 0;
      height: 5rem;
      width: 100%;
 }

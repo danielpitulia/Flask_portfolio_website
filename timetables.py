@@ -14,7 +14,6 @@ def get_timetables(token, user_input_stopID):
     }
 
     x2 = requests.get(url_stopID, headers=headers)
-    print(x2.json()['LocationList']['StopLocation'][0]['name']) # Bus stop name
     stopID = x2.json()['LocationList']['StopLocation'][0]['id']
 
     # 2) Send GET request for departures. This requires some time variables.
@@ -32,20 +31,21 @@ def get_timetables(token, user_input_stopID):
     line = list()
     delta = list()
     direction = list()
+    stop_name = departures[0]['stop']
 
-    for x in departures:
-        date_iso = x['date']
-        time_iso = x['time']
+    for departure in departures:
+        date_iso = departure['date']
+        time_iso = departure['time']
         dep_date = datetime.datetime.fromisoformat(date_iso + " " + time_iso)
         delta_x = [int((dep_date - current_date).total_seconds()/60)] # Time difference in minutes
 
         if delta_x[0] > 0:
             delta += delta_x
-            line += [x['name']]
-            direction += [x['direction']]
+            line += [departure['name']]
+            direction += [departure['direction']]
             # Extra brackets converts strings into one list item
         if len(line) >= 10:
             break
 
     departure_zip = zip(line,delta,direction)
-    return departure_zip
+    return departure_zip, stop_name

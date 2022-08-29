@@ -22,7 +22,7 @@
 </head>
 
 <body>
-     <div id="content-above-footer">
+     <header>
           <div id="topBanner" class="bg-dark text-white text-center ">
                <h1>{{title}}</h1>
                <p>DANIEL PITULIA</p>
@@ -56,8 +56,8 @@
                     </div>
                </nav>
           </div>
+     </header>
           {% block content %}{% endblock %}
-     </div>
      <footer id="footer" class="bg-dark text-white text-center">
           <p id="dates">{{ date }}</p>
      </footer>
