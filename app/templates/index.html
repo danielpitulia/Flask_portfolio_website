@@ -13,27 +13,33 @@
 				<hr class="d-sm-none">
 			</div>
 			<div class="col-sm-8">
-				<h2>Contact me </h2>
-				<p>(currently under construction, I am rewriting this function)</p>
-				<form action="mail-script.php" method="POST">
-					<ul>
-						<li>
-							<label for="name">Name: </label>
-							<input type="text" id="name" name="name" class="form-control">
-						</li>
-						<li>
-							<label for="mail">E-mail: </label>
-							<input type="email" id="email" name="email" class="form-control">
-						</li>
-						<li>
-							<label for="message">Message: </label>
-							<textarea id="msg" name="message" class="form-control"></textarea>
-						</li>
-						<li id="sendButton" class="btn">
-							<button type="submit" value="send" name="submit">Send your message</button>
-						</li>
-					</ul>
+				<h2>Contact me</h2>
+				<form action="" method="post" novalidate>
+					{{ form.csrf_token() }}
+					<p>{{ form.name.label }}<br>
+						{{ form.name(size=32) }}
+					</p>
+					{% if form.name.errors %}
+						<p class="error">{{ form.name.errors[0] }}<p>
+					{% endif %}
+					<p>{{ form.email.label }}<br>
+						{{ form.email(size=32) }}
+					</p>
+					{% if form.email.errors %}
+						<p class="error">{{ form.email.errors[0] }}<p>
+					{% endif %}
+					<p>{{ form.message.label }}<br>
+						{{ form.message(size=32) }}
+					</p>
+					{% if form.message.errors %}
+						<p class="error">{{ form.message.errors[0] }}<p>
+					{% endif %}
+					<p>{{ form.submit() }}</p>
+
 				</form>
+				{% if sent_message %}
+				<p>{{ sent_message }}</p>
+				{% endif %}
 			</div>
 		</div>
 	</div>
