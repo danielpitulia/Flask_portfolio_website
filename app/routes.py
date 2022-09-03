@@ -2,12 +2,11 @@ from app import app
 from flask import render_template, url_for, request
 from timetables import get_timetables
 from token_vasttrafik import get_token
-from forms import EmailForm
+from forms import EmailForm, SearchForm
 from flask_mail import Mail, Message
 import datetime
 
 date = datetime.datetime.now().strftime("%c")
-
 
 @app.route('/index', methods=['GET', 'POST'])
 @app.route('/', methods=['GET', 'POST'])
@@ -25,28 +24,27 @@ def index():
 		return render_template('index.html', title='HOME', date=date, form=form, css="styles_index")
 
 @app.route('/publictransport', methods=['GET', 'POST'])
-
 def publictransport():
-# If the user enters a search (POST method), request data from Västtrafik.
-# Else, render an empty table.
+	form=SearchForm()
+	# Get token from Västtrafik for authentication if it hasn't been done
 	if "token" not in locals():
 		token = get_token()
 
-	if request.method == 'POST':
+	if form.validate_on_submit():
+		# Get timetables based on user's search
 		date = datetime.datetime.now().strftime("%c")
-		stop_input = request.form['stop_input']
+		stop_input = form.search.data
 		timetable_and_stop = get_timetables(token, stop_input)
 		departures_zip = timetable_and_stop[0]
 		stop_name = timetable_and_stop[1]
-		return render_template('publictransport.html', title='TIMETABLE APP', date=date, departures_zip=departures_zip, stop_input = stop_input, css="styles_publictransport", stop_name=stop_name)
-
-	elif request.method == 'GET':
-
+		return render_template('publictransport.html', title='TIMETABLE APP', date=date, departures_zip=departures_zip, stop_input = stop_input, css="styles_publictransport", stop_name=stop_name, form=form)
+	else:
+		# Render an empty form for first visit
 		line,delta,destination = "", "", ""
 		date = datetime.datetime.now().strftime("%c")
 		departures_zip=zip(line, delta, destination)
 		stop_input=""
-		return render_template('publictransport.html', title='TIMETABLE APP', date=date, departures_zip=departures_zip, stop_input = stop_input, css="styles_publictransport", stop_name="")
+		return render_template('publictransport.html', title='TIMETABLE APP', date=date, departures_zip=departures_zip, stop_input = stop_input, css="styles_publictransport", stop_name="", form=form)
 
 @app.route('/chat')
 def chat():

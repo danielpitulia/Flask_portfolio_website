@@ -3,6 +3,10 @@
       src: URL('../fonts/Lato-Regular.ttf');
  }
 
+header{
+     margin-bottom: 20px;
+}
+
 body{
      font-family: 'Lato';
      display: flex;

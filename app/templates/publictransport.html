@@ -6,13 +6,13 @@
      <div class="container">
           <h1>Public Transport Timetables</h1>
           <p>Tired of Västtrafik ToGo? Try my app instead :)</p>
-          <form action="/publictransport" method="POST">
-               <label for="stop_search"></label>
-               <input id="stop_search" type="text" name="stop_input" value="{{ stop_input }}" placeholder="Search bus stop name"></input>
-               <input class="btn btn-primary" type="submit" value="Search"></input>
+          <form action="/publictransport" method="POST" novalidate>
+          {{ form.csrf_token }}
+          {{ form.search.label }}
+          {{ form.search(size=32) }}
+          {{ form.submit() }}
           </form>
           <br />
-          <p>Stop name: {{ stop_name }}</p>
           <table id="timetable" class="table">
                <tr>
                     <th scope="col">Line</th>
