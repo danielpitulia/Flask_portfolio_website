@@ -2,17 +2,20 @@
 
 {% block content %}
 <div class="wrapper">
-	<div class="container">
+	<div class="container-sm">
 		<div class="row">
-			<div class="col-sm-4">
+			<div class="col-md-5">
 				<h2>Social media</h2>
 				<p>Connect on Facebook or e-mail: <adress><a href="mailto: daniel@dpitulia.com">daniel@dpitulia.com</a></adress></p>
 				<adress><a href="mailto:daniel@dpitulia.com" class="fa fa-envelope"></a></adress>
 				<adress><a href="https://www.facebook.com/danielpitulia/" class="fa fa-facebook"></a></adress>
 				<adress><a href="https://www.github.com/danielpitulia/" class="fa fa-github"></a></adress>
-				<hr class="d-sm-none">
+				<article>
+					<h2>Skills</h2>
+					<p>Basics of front-end development (HTML, CSS, Bootstrap and JavaScript). Just started learning back-end using Python and the Flask framework. I have made sites with WordPress too </p>
+				</article>
 			</div>
-			<div class="col-sm-8">
+			<div class="col-md-4">
 				<h2>Contact me</h2>
 				<form action="" method="post" novalidate>
 					{{ form.csrf_token() }}
@@ -29,7 +32,7 @@
 						<p class="error">{{ form.email.errors[0] }}<p>
 					{% endif %}
 					<p>{{ form.message.label }}<br>
-						{{ form.message(size=32) }}
+						{{ form.message(cols=32, rows=10) }}
 					</p>
 					{% if form.message.errors %}
 						<p class="error">{{ form.message.errors[0] }}<p>

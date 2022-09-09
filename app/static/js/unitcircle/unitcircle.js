@@ -1,6 +1,6 @@
 //This file contains the code to update the unit circle drawn in the <canvas> element.
 
-const canvas = document.getElementById("myCanvas");
+let canvas = document.getElementById("myCanvas");
 const ctx = canvas.getContext("2d");
 const radius = 75;
 const pi = Math.PI;

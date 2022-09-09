@@ -3,9 +3,9 @@
 {% block content %}
 <div class=wrapper">
 	<div id="photos" class="container">
-		<h2>Raspberry PI 🥧️ </h2>
-		<p>I have played around with a Raspberry Pi to learn more about computers. I connected a power button and also bought a small screen. The screen came without a case so I made one using a 3D printer.</p>
-			<br />
+		<div class="row">
+			<h2>Raspberry PI 🥧️ </h2>
+			<p>I played around with a Raspberry Pi computer, like connecting a power button and configuring it as a NAS (Network attached storage). I also designed screen case using CAD and a 3D printer.</p>
 			<div id="carousel_outer">
 				<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
 					<div class="carousel-indicators">
@@ -38,12 +38,13 @@
 					</button>
 				</div>
 			</div>
-			<br>
-			<p>Below is the 3D model used for the case.
-			Click and drag to see the model in 3D.</p>
+		</div>
+		<div class="row">
+			<p>Below is the 3D model used for the case. Click and drag to see the model in 3D.</p>
 			<div id="stl_cont"></div>
-			<script src="{{url_for('static', filename='js/3dprint/stl_viewer.min.js')}}"></script>
-			<script src="{{url_for('static', filename='js/3dprint/3dprint.js')}}"></script>
+		</div>
+		<script src="{{url_for('static', filename='js/3dprint/stl_viewer.min.js')}}"></script>
+		<script src="{{url_for('static', filename='js/3dprint/3dprint.js')}}"></script>
 	</div>
 </div>
 {% endblock %}
