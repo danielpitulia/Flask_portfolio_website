@@ -3,7 +3,7 @@
 
 <head>
      <title>dpitulia</title>
-     <meta charset="utf-8">
+     <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1">
      <!-- Favicon links-->
      <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='favicon/apple-touch-icon.png') }}">
@@ -11,20 +11,19 @@
      <link rel="icon" type="image.png" sizes="16x16" href="{{ url_for('static', filename='favicon/favicon-16x16.png') }}">
      <link rel="manifest" href="{{ url_for('static', filename='favicon/site.webmanifest') }}">
      <!-- End of Favicon links -->
-     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}"">
      {% if css %}
-     <link rel="stylesheet" href="{{ url_for('static', filename='css/{0}.css'.format(css)) }}">
+     <link rel="stylesheet" href="{{ url_for('static', filename='css/{0}.css'.format(css)) }}" title="Page-specific Stylesheet">
      {% endif %}
      <link href="{{ url_for('static', filename='css/bootstrap/bootstrap.min.css') }}" rel="stylesheet">
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-     <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/fifteen" type="text/css" />
+     <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/fifteen" type="text/css">
      <script src="{{ url_for('static', filename='js/bootstrap/bootstrap.bundle.js') }}"></script>
      {% if js_static %}
-     <script src="{{ js_online }}"></script>
      <script async="true" src="{{ url_for('static', filename='{0}'.format(js_static)) }}"></script>
      {% endif %}
      {% if js_online %}
-
+     <script src="{{ js_online }}"></script>
      {% endif %}
 </head>
 
@@ -64,12 +63,9 @@
           </div>
 
      </header>
-     <br>
           {% block content %}{% endblock %}
-     <br>
      <footer id="footer" class="bg-dark text-white text-center">
           <p id="dates">{{ date }}</p>
      </footer>
 </body>
-
 </html>

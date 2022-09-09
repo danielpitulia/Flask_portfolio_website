@@ -5,21 +5,24 @@
 <div class="wrapper" id="timetablediv">
      <div class="container">
           <h1>Public Transport Timetables</h1>
-          <p>Tired of Västtrafik ToGo? Try my app instead :)</p>
+          <p>Tired of Västtrafik ToGo? Try my app instead :) For example, search for "Brunnsparken".</p>
           <form action="/publictransport" method="POST" novalidate>
           {{ form.csrf_token }}
           {{ form.search.label }}
           {{ form.search(size=32) }}
           {{ form.submit() }}
           </form>
-          <br />
-          <table id="timetable" class="table">
-               <tr>
-                    <th scope="col">Line</th>
-                    <th scope="col">Time remaining (min)</th>
-                    <th scope="col">Direction</th>
-               </tr>
+          <p id="stopresult">Stop: {{ stop_name }}
+          <table id="timetable" class="table table-responsive table-dark">
+               <thead class="thead-dark">
+                    <tr>
+                         <th scope="col">Line</th>
+                         <th scope="col">Time remaining (min)</th>
+                         <th scope="col">Direction</th>
+                    </tr>
+               </thead>
                <tbody>
+               {% if departures_zip != False %}
                     {% for line, delta, destination in departures_zip if not delta > 120 and delta > 0 %}
                     <tr>
                          <td>{{ line }}</td>
@@ -27,9 +30,15 @@
                          <td>{{ destination }}</td>
                     </tr>
                     {% endfor %}
+               {% else %}
+                    <tr>
+                         <td>Not found</td>
+                         <td id="delta"></td>
+                         <td></td>
+                    </tr>
+               {% endif %}
                </tbody>
           </table>
-          <br />
      </div>
 </div>
 {% endblock %}
