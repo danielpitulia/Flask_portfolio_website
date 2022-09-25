@@ -11,7 +11,7 @@
      <link rel="icon" type="image.png" sizes="16x16" href="{{ url_for('static', filename='favicon/favicon-16x16.png') }}">
      <link rel="manifest" href="{{ url_for('static', filename='favicon/site.webmanifest') }}">
      <!-- End of Favicon links -->
-     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}"">
+     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
      {% if css %}
      <link rel="stylesheet" href="{{ url_for('static', filename='css/{0}.css'.format(css)) }}" title="Page-specific Stylesheet">
      {% endif %}
@@ -23,7 +23,7 @@
      <script async="true" src="{{ url_for('static', filename='{0}'.format(js_static)) }}"></script>
      {% endif %}
      {% if js_online %}
-     <script src="{{ js_online }}"></script>
+     <script async="true" src="{{ js_online }}"></script>
      {% endif %}
 </head>
 
