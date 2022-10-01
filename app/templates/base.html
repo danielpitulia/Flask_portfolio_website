@@ -13,10 +13,12 @@
      <!-- End of Favicon links -->
      <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
      {% if css %}
-     <link rel="stylesheet" href="{{ url_for('static', filename='css/{0}.css'.format(css)) }}" title="Page-specific Stylesheet">
+     <link rel="stylesheet" href="{{ url_for('static', filename='css/{0}.css'.format(css)) }}" title="Page-specific stylesheet">
      {% endif %}
      <link href="{{ url_for('static', filename='css/bootstrap/bootstrap.min.css') }}" rel="stylesheet">
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+     <link rel="stylesheet" href="{{ url_for('static', filename='fontawesome/css/fontawesome.css') }}">
+     <link rel="stylesheet" href="{{ url_for('static', filename='fontawesome/css/brands.css') }}">
+     <link rel="stylesheet" href="{{ url_for('static', filename='fontawesome/css/solid.css') }}">
      <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/fifteen" type="text/css">
      <script src="{{ url_for('static', filename='js/bootstrap/bootstrap.bundle.min.js') }}"></script>
      {% if js_static %}
