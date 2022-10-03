@@ -12,6 +12,7 @@ date = datetime.datetime.now().strftime("%c")
 @app.route('/index', methods=['GET', 'POST'])
 @app.route('/', methods=['GET', 'POST'])
 def index():
+    topBanner = "HOME"
     date = datetime.datetime.now().strftime("%c")
     form = EmailForm()
     if form.validate_on_submit():
@@ -20,9 +21,9 @@ def index():
         msg.body = form.message.data
         mail.send(msg)
         sent_message = "Your message has been sent."
-        return render_template('index.html', title='HOME', date=date, css="styles_index", form=form, sent_message=sent_message)
+        return render_template('index.html', title='HOME - WEBSITE PORTFOLIO', date=date, css="styles_index", form=form, sent_message=sent_message, topBanner = topBanner)
     else:
-        return render_template('index.html', title='HOME', date=date, form=form, css="styles_index")
+        return render_template('index.html', title='HOME - Web projects', date=date, form=form, css="styles_index", topBanner = topBanner)
 
 
 @app.route('/publictransport', methods=['GET', 'POST'])

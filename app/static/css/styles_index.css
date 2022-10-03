@@ -1,17 +1,42 @@
-.error {
-     color: red;
-}
+/* Styles for index page */
 
 .intro{
      text-align: center;
 }
 
-
 i.fa-brands {
-     font-size:30px;
+     font-size:50px;
      width: 20%;
      display: flex-inline !important;
      margin: 0 auto !important;
+}
+
+/* Section containing dock-banner and dock-text */
+#dock-section{
+     height:400px;
+
+}
+
+#dock-background{
+     background-image: url("../img/pixabay_dock_crop.jpg");
+     background-position: center;
+     height: 400px;
+     opacity: 0.7;
+}
+
+#dock-text{
+     width: 350px;
+     height: 100px;
+     display: flex;
+     align-items: center;
+     margin: 0 auto;
+     position: relative;
+     bottom: 360px;
+}
+
+#dock-text p{
+     font-size:18px;
+     text-align: center;
 }
 
 /* Style social media icons */
@@ -51,4 +76,8 @@ div.social .fa, div.social .fa-brands{
  .fa-envelope, .fa-envelope:hover {
       color: white;
       background: #808080;
+ }
+
+ .error {
+      color: red;
  }

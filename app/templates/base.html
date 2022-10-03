@@ -31,7 +31,11 @@
 
 <body>
      <header>
-          <div id="topBanner" class="bg-dark text-white text-center ">
+          {% if topBanner %}
+          <div id="topBanner" class="bg-dark text-white text-center home-banner">
+          {% else %}
+          <div id="topBanner" class="bg-dark text-white text-center">
+          {% endif %}
                <h1>{{ title }}</h1>
                <p>DANIEL PITULIA</p>
           </div>

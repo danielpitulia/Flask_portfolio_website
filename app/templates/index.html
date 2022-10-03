@@ -3,25 +3,35 @@
 {% block content %}
 <div class="wrapper">
 	<div class="container-sm">
+		<div class="row justify-content-center intro p-4">
+			<div class="col-6">
+				<article>
+					<h2>Skills</h2>
+					<p>Basics in front-end development (HTML, CSS, Bootstrap and JavaScript). Just started learning back-end using Python and the Flask framework. I have made sites with WordPress too </p>
+				</article>
+			</div>
+		</div>
 		<div class="row justify-content-center intro">
-			<div class="col-4">
-			<article >
-				<h2>Skills</h2>
-				<p>Basics of front-end development (HTML, CSS, Bootstrap and JavaScript). Just started learning back-end using Python and the Flask framework. I have made sites with WordPress too </p>
-			</article>
+			<div class="col-md-4 justify-content-center p-4">
+				<i class="fa-brands fa-html5" aria-hidden="true"></i>
+				<i class="fa-brands fa-css3" aria-hidden="true"></i>
 			</div>
+		</div>
+		<div class="row justify-content-center intro pt-4 pb-5">
+			<div class="col-md-4 justify-content-center">
+				<i class="fa-brands fa-python"></i>
+				<i class="fa-brands fa-js"></i>
 			</div>
-			<div class="row justify-content-center intro">
-				<div class="col-md-4 justify-content-center">
-			<i class="fa-brands fa-html5" aria-hidden="true"></i>
-			<i class="fa-brands fa-css3" aria-hidden="true"></i>
-			<i class="fa-brands fa-python"></i>
-			<i class="fa-brands fa-js"></i>
-			</div>
-
+		</div>
 	</div>
-		<div class="row">
-			<div class="col-md-5 social">
+	<section id="dock-section" class="my-4">
+		<div id="dock-background"></div>
+		<div id="dock-text" class="text-white bg-dark"><p>Contact me if you need a web developer. Happy to discuss a project with you</p></div>
+	</section>
+
+	<div class="container-sm mt-5">
+		<div class="row justify-content-center">
+			<div class="col-md-3 social">
 				<h2>Social media</h2>
 				<p>Connect on Facebook or e-mail: <adress><a href="mailto: daniel@dpitulia.com">daniel@dpitulia.com</a></adress>
 				</p>
@@ -30,7 +40,7 @@
 				<adress><a href="https://www.github.com/danielpitulia/" class="fa-brands fa-github"></a></adress>
 
 			</div>
-			<div class="col-md-4">
+			<div class="col-md-3">
 				<h2>Contact me</h2>
 				<form action="" method="post" novalidate>
 					{{ form.csrf_token() }}
