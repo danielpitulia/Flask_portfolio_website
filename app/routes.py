@@ -54,7 +54,7 @@ def publictransport():
 @app.route('/unitcircle')
 def unitcircle():
     date = datetime.datetime.now().strftime("%c")
-    return render_template('unitcircle.html', title='UNIT CIRCLE', date=date, css="styles_unitcircle", js_online="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=AM_CHTML", js_static="js/unitcircle/unitcircle.js")
+    return render_template('unitcircle.html', title='UNIT CIRCLE', date=date, css="styles_unitcircle", js_online="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=AM_CHTML", js_circle="unitcircle.js")
 
 
 @app.route('/raspberry')
