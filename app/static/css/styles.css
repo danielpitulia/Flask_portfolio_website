@@ -39,8 +39,19 @@ li {
  }
 
  #topBanner {
+      height: 500px;
       background-image: url("../img/home.jpg");
+      background-position: center;
       background-size: cover;
+      display:flex;
+      flex-direction: column;
+      justify-content: center;
+      text-shadow:
+           -1px -1px 0 #000,
+           1px -1px 0 #000,
+           -1px 1px 0 #000,
+           1px 1px 0 #000;
+      /*background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
@@ -53,9 +64,16 @@ li {
            -1px -1px 0 #000,
            1px -1px 0 #000,
            -1px 1px 0 #000,
-           1px 1px 0 #000;
+           1px 1px 0 #000;*/
  }
 
- .home-banner{
-      padding: 10rem !important;
+ #topBanner h1{
+      order: 1;
+}
+
+#topBanner p{
+     order: 2;
+}
+ .non-home-banner{
+     height: 300px !important; /* Decrease banner size if not on home-page */
 }

@@ -4,7 +4,7 @@
 <div class="wrapper">
 	<div class="container-sm">
 		<div class="row justify-content-center intro p-2">
-			<div class="col-6">
+			<div class="col-md-6">
 				<article>
 					<h2>Skills</h2>
 					<p>Basics in front-end development (HTML, CSS, Bootstrap and JavaScript). Just started learning back-end using Python and the Flask framework. I have made sites with WordPress too </p>
@@ -27,7 +27,7 @@
 	</div>
 	<section id="dock-section" class="my-4">
 		<div id="dock-background"></div>
-		<div id="dock-text" class="text-white bg-dark"><p>Contact me if you need a web developer. Always up for discussing a project</p></div>
+		<div id="dock-text" class="text-white bg-dark pt-3"><p>Contact me if you need a web developer. Always up for discussing a project</p></div>
 	</section>
 
 	<div class="container-sm mt-5">
@@ -46,21 +46,21 @@
 				<form action="" method="post" novalidate>
 					{{ form.csrf_token() }}
 					<p>{{ form.name.label }}<br>
-						{{ form.name(size=32) }}
+						{{ form.name(size=24) }}
 					</p>
 					{% if form.name.errors %}
 					<p class="error">{{ form.name.errors[0] }}
 					<p>
 						{% endif %}
 					<p>{{ form.email.label }}<br>
-						{{ form.email(size=32) }}
+						{{ form.email(size=24) }}
 					</p>
 					{% if form.email.errors %}
 					<p class="error">{{ form.email.errors[0] }}
 					<p>
 						{% endif %}
 					<p>{{ form.message.label }}<br>
-						{{ form.message(cols=32, rows=10) }}
+						{{ form.message(cols=24, rows=10) }}
 					</p>
 					{% if form.message.errors %}
 					<p class="error">{{ form.message.errors[0] }}

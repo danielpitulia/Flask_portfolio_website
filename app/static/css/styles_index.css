@@ -20,6 +20,7 @@ i.fa-brands {
 #dock-background{
      background-image: url("../img/pixabay_dock_crop.jpg");
      background-position: center;
+     background-size: cover;
      height: 400px;
      opacity: 0.7;
 }
