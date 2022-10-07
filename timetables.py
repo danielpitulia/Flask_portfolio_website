@@ -16,20 +16,22 @@ def get_timetables(token, user_input_stopID):
     x2 = requests.get(url_stopID, headers=headers)
     stopID = x2.json()['LocationList']['StopLocation'][0]['id']
 
-    # 2) Send GET request for departures. This requires some time variables.
+    # 2) Initialise time variables and send GET request for departures.
     date_now = datetime.datetime.now().strftime("%Y%m%d")
     hour_now = datetime.datetime.now().strftime("%H")
     minutes_now = datetime.datetime.now().strftime("%M")
+
     url_departures = "https://api.vasttrafik.se/bin/rest.exe/v2/departureBoard?id=" + stopID + \
         "&date=" + date_now + "&time=" + hour_now + \
         "%3A" + minutes_now + "&format=" + format
-    x3 = requests.get(url_departures, headers=headers)
 
-    if x3.json()['DepartureBoard']['Departure']:
+    try:
+        x3 = requests.get(url_departures, headers=headers)
         departures = x3.json()['DepartureBoard']['Departure']
         stop_name = departures[0]['stop']
-    else:
-        departures = ["Not found"]
+    except:
+        departures = ["N/A"]
+        stop_name = "Not found, try another stop name."
 
     current_date = datetime.datetime.now()
     current_date = current_date.replace(second=0, microsecond=0)
@@ -39,7 +41,7 @@ def get_timetables(token, user_input_stopID):
     delta = list()
     direction = list()
 
-    if departures != ["Not found"]:
+    if departures != ["N/A"]:
         for departure in departures:
             date_iso = departure['date']
             time_iso = departure['time']

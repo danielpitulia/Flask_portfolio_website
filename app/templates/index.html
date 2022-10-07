@@ -41,38 +41,7 @@
 				<adress><a href="https://www.github.com/danielpitulia/" class="fa-brands fa-github"></a></adress>
 
 			</div>
-			<div class="col-md-3">
-				<h2>Contact me</h2>
-				<form action="" method="post" novalidate>
-					{{ form.csrf_token() }}
-					<p>{{ form.name.label }}<br>
-						{{ form.name(size=24) }}
-					</p>
-					{% if form.name.errors %}
-					<p class="error">{{ form.name.errors[0] }}
-					<p>
-						{% endif %}
-					<p>{{ form.email.label }}<br>
-						{{ form.email(size=24) }}
-					</p>
-					{% if form.email.errors %}
-					<p class="error">{{ form.email.errors[0] }}
-					<p>
-						{% endif %}
-					<p>{{ form.message.label }}<br>
-						{{ form.message(cols=24, rows=10) }}
-					</p>
-					{% if form.message.errors %}
-					<p class="error">{{ form.message.errors[0] }}
-					<p>
-						{% endif %}
-					<p>{{ form.submit() }}</p>
 
-				</form>
-				{% if sent_message %}
-				<p>{{ sent_message }}</p>
-				{% endif %}
-			</div>
 		</div>
 	</div>
 </div>
