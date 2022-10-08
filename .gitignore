@@ -2,3 +2,4 @@ __pycache__/
 venv/
 .flaskenv
 app/static/fontawesome/
+token_vasttrafik.py
