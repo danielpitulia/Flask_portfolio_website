@@ -3,3 +3,4 @@ venv/
 .flaskenv
 app/static/fontawesome/
 token_vasttrafik.py
+config.py

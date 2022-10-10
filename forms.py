@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, TextAreaField, SubmitField
-from wtforms.validators import DataRequired
+from wtforms.validators import DataRequired, Email
 
 
 class SearchForm(FlaskForm):
@@ -9,7 +9,7 @@ class SearchForm(FlaskForm):
 
 
 class EmailForm(FlaskForm):
-    name = StringField('Name', validators=[DataRequired()])
-    email = StringField('Email', validators=[DataRequired()])
-    message = TextAreaField('Message', validators=[DataRequired()])
+    name = StringField('name', validators=[DataRequired()])
+    email = StringField('email', validators=[Email()])
+    message = TextAreaField('message', validators=[DataRequired()])
     submit = SubmitField('Send')

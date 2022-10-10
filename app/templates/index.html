@@ -39,9 +39,34 @@
 				<adress><a href="mailto:daniel@dpitulia.com" class="fa fa-envelope"></a></adress>
 				<adress><a href="https://www.facebook.com/danielpitulia/" class="fa-brands fa-facebook"></a></adress>
 				<adress><a href="https://www.github.com/danielpitulia/" class="fa-brands fa-github"></a></adress>
-
 			</div>
-
+			<div class="col-md-6">
+				<h2>Contact Me</h2>
+				<form method="POST" action="/">
+					{{ form.hidden_tag() }}
+					<div class="form-group m-5">
+					{{ form.name.label() }}
+					{{ form.name(class="form.control")}}
+					</div>
+					<div class="form-group m-5">
+					{{ form.email.label() }}
+					{{ form.email(class="form.control")}}
+					</div>
+					<div class="form-group m-5">
+					{{ form.message.label() }}
+					{{ form.message()}}
+					</div>
+					{{ form.submit }}
+					<!--
+					<label for="name">Name</label>
+					<input name="name" type="text" value="{{ request.form['name'] }}""></input><br>
+					<label for="e-mail">E-mail</label>
+					<input name="e-mail" type="text" value="{{ request.form['e-mail'] }}"></input><br>
+					<label for="message">Message</label>
+					<textarea name="message">{{ request.form['message'] }}</textarea><br>
+					<button type="submit">Submit</button>-->
+				</form>
+			</div>
 		</div>
 	</div>
 </div>

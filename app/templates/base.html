@@ -61,6 +61,13 @@
                     </div>
                </div>
           </nav>
+          {% for message in get_flashed_messages() %}
+          <div class="alert alert-danger alert-dismissible fade show">
+               <strong>Error!</strong> {{ message }}
+               <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+          </div>
+          {% endfor %}
+
      </div>
 
           {% block content %}{% endblock %}
