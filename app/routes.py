@@ -15,10 +15,14 @@ def index():
     topBanner = "HOME"
     date = datetime.datetime.now().strftime("%c")
     form = EmailForm()
-    if form.validate_on_submit():
-        return redirect('/')
+    if request.method == 'POST':
+        name = request.form['name']
+        email = request.form['email']
+        message = request.form['message']
+        if form.validate_on_submit():
+            return render_template('/', title='Web projects', date=date, css="styles_index", topBanner = topBanner, js_static=js_static, form=form)
 
-    #if request.method == 'POST':
+
     #    name = request.form['name']
     #    email = request.form['e-mail']
     #    message = request.form['message']

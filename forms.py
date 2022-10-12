@@ -1,5 +1,5 @@
-from flask_wtf import FlaskForm
-from wtforms import StringField, TextAreaField, SubmitField
+from flask_wtf import FlaskForm, RecaptchaField
+from wtforms import StringField, TextAreaField, SubmitField, EmailField
 from wtforms.validators import DataRequired, Email
 
 
@@ -10,6 +10,7 @@ class SearchForm(FlaskForm):
 
 class EmailForm(FlaskForm):
     name = StringField('name', validators=[DataRequired()])
-    email = StringField('email', validators=[Email()])
+    email = EmailField('email', validators=[Email(), DataRequired()])
     message = TextAreaField('message', validators=[DataRequired()])
     submit = SubmitField('Send')
+    recaptcha = RecaptchaField()
