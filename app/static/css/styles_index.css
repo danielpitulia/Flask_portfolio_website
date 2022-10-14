@@ -11,6 +11,12 @@ i.fa-brands {
      margin: 0 auto !important;
 }
 
+#success-message{
+     text-align: center;
+     font-weight: bold;
+     margin-bottom: 0px;
+}
+
 /* Section containing dock-banner and dock-text */
 #dock-section{
      height:400px;

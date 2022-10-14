@@ -61,12 +61,12 @@
                     </div>
                </div>
           </nav>
-          {% for message in get_flashed_messages() %}
-          <div class="alert alert-danger alert-dismissible fade show">
-               <strong>Error!</strong> {{ message }}
+          {% if sent_message %}
+          <div class="alert alert-success alert-dismissible fade show">
+               <p id="success-message">Your message has been sent!</p> 
                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
           </div>
-          {% endfor %}
+          {% endif %}
 
      </div>
 

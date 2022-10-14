@@ -7,7 +7,6 @@ class SearchForm(FlaskForm):
     search = StringField('Search', validators=[DataRequired()])
     submit = SubmitField('Search')
 
-
 class EmailForm(FlaskForm):
     name = StringField('name', validators=[DataRequired()])
     email = EmailField('email', validators=[Email(), DataRequired()])
