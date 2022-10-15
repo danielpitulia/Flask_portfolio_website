@@ -19,7 +19,8 @@ def index():
         name = request.form['name']
         email = request.form['email']
         message = request.form['message']
-        contactfile = open("contactfile.txt", "a")
+        today = datetime.datetime.now().strftime("%d")
+        contactfile = open("contactfile_" + today + ".txt", "a")
         contactfile.write("Sender: " + name + ". Email: " + email + ". Message: " + message + ".\n")
         contactfile.close()
         sent_message = "Your message has been sent."
